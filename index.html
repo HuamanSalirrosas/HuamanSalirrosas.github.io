@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>El diario de Marina</title>
+
+  <!-- Evita que los buscadores indexen la página.
+       No equivale a protegerla con contraseña. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, serif;
+      color: #302b28;
+      background:
+        linear-gradient(
+          135deg,
+          #fffaf4,
+          #f6eee7
+        );
+    }
+
+    header {
+      min-height: 70vh;
+      display: grid;
+      place-items: center;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .intro {
+      max-width: 750px;
+      animation: appear 1.2s ease both;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: clamp(3rem, 9vw, 6rem);
+      font-weight: normal;
+    }
+
+    p {
+      font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    nav a {
+      padding: 0.8rem 1.2rem;
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid #8d7d71;
+      border-radius: 999px;
+      transition:
+        transform 180ms ease,
+        background 180ms ease;
+    }
+
+    nav a:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="intro">
+      <p>Marina</p>
+
+      <h1>Bitácora de viaje</h1>
+
+      <p>
+        Viajes, restaurantes, cocina, bellydance
+        y recuerdos que quiero conservar.
+      </p>
+
+      <nav>
+        <a href="#viajes">Viajes</a>
+        <a href="#restaurantes">Restaurantes</a>
+        <a href="#cocina">Cocina</a>
+        <a href="#bellydance">Bellydance</a>
+      </nav>
+    </div>
+  </header>
+</body>
+</html>
