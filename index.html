@@ -18,52 +18,76 @@
 </head>
 
 <body>
-  <!-- Encabezado principal de la página. -->
-  <header class="hero">
-    <div class="intro">
-      <p class="eyebrow">Marina</p>
+  <header class="site-header">
+    <a class="brand" href="index.html">Marina</a>
 
-      <h1>Bitácora de Viaje</h1>
-
-      <p>
-        Viajes, restaurantes, cocina, bellydance
-        y recuerdos que quiero conservar.
-      </p>
-
-      <!-- Menú simple para moverse por las secciones. -->
-      <nav aria-label="Menú principal">
-        <a href="#travel">Travel</a>
-        <a href="#restaurants">Restaurants</a>
-        <a href="#cooking">Cooking</a>
-        <a href="#bellydance">Bellydance</a>
-      </nav>
-    </div>
+    <nav class="main-nav" aria-label="Menú principal">
+      <a href="viajes.html">Viajes</a>
+      <a href="restaurantes.html">Restaurantes</a>
+      <a href="cocina.html">Cocina</a>
+      <a href="danza.html">Danza</a>
+      <a href="proyectos.html">Proyectos</a>
+    </nav>
   </header>
 
   <main>
-    <!-- Cada sección representa una parte del diario personal. -->
-    <section id="travel" class="diary-section">
-      <h2>Travel</h2>
-      <p>Lugares visitados, caminatas lentas y pequeños detalles de cada viaje.</p>
+    <section class="hero landing-hero">
+      <div class="intro">
+        <p class="eyebrow">Bitácora personal</p>
+
+        <h1>Bitácora de Viaje</h1>
+
+        <p>
+          Un punto de partida para guardar viajes, restaurantes, cocina,
+          danza, proyectos y recuerdos que quiero conservar.
+        </p>
+      </div>
     </section>
 
-    <section id="restaurants" class="diary-section">
-      <h2>Restaurants</h2>
-      <p>Mesas bonitas, sabores nuevos y restaurantes que quiero recordar.</p>
-    </section>
+    <section class="section-grid" aria-labelledby="sections-title">
+      <div class="section-heading">
+        <p class="eyebrow">Explorar</p>
+        <h2 id="sections-title">Secciones independientes</h2>
+        <p>
+          Cada botón abre una página propia, preparada para crecer con nuevos
+          relatos, fotos, listas y detalles sin mezclarlo todo en la portada.
+        </p>
+      </div>
 
-    <section id="cooking" class="diary-section">
-      <h2>Cooking</h2>
-      <p>Recetas caseras, pruebas en la cocina y platos para repetir.</p>
-    </section>
+      <div class="card-grid">
+        <a class="section-card" href="viajes.html">
+          <span>01</span>
+          <h3>Viajes</h3>
+          <p>Lugares visitados, caminatas lentas y pequeños detalles de cada destino.</p>
+        </a>
 
-    <section id="bellydance" class="diary-section">
-      <h2>Bellydance</h2>
-      <p>Música, movimiento, práctica y momentos especiales bailando.</p>
+        <a class="section-card" href="restaurantes.html">
+          <span>02</span>
+          <h3>Restaurantes</h3>
+          <p>Mesas bonitas, sabores nuevos y restaurantes que quiero recordar.</p>
+        </a>
+
+        <a class="section-card" href="cocina.html">
+          <span>03</span>
+          <h3>Cocina</h3>
+          <p>Recetas caseras, pruebas en la cocina y platos para repetir.</p>
+        </a>
+
+        <a class="section-card" href="danza.html">
+          <span>04</span>
+          <h3>Danza</h3>
+          <p>Música, movimiento, práctica y momentos especiales bailando.</p>
+        </a>
+
+        <a class="section-card" href="proyectos.html">
+          <span>05</span>
+          <h3>Proyectos</h3>
+          <p>Ideas en proceso, aprendizajes y planes personales para desarrollar.</p>
+        </a>
+      </div>
     </section>
   </main>
 
-  <!-- Conecta esta página con JavaScript. -->
   <script src="script.js"></script>
 </body>
 </html>
