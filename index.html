@@ -7,112 +7,63 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>El diario de Marina</title>
+  <title>Bitácora de Viaje</title>
 
   <!-- Evita que los buscadores indexen la página.
        No equivale a protegerla con contraseña. -->
   <meta name="robots" content="noindex, nofollow">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Georgia, serif;
-      color: #302b28;
-      background:
-        linear-gradient(
-          135deg,
-          #fffaf4,
-          #f6eee7
-        );
-    }
-
-    header {
-      min-height: 70vh;
-      display: grid;
-      place-items: center;
-      padding: 3rem 1.5rem;
-      text-align: center;
-    }
-
-    .intro {
-      max-width: 750px;
-      animation: appear 1.2s ease both;
-    }
-
-    h1 {
-      margin-bottom: 1rem;
-      font-size: clamp(3rem, 9vw, 6rem);
-      font-weight: normal;
-    }
-
-    p {
-      font-family: Arial, sans-serif;
-      font-size: 1.15rem;
-      line-height: 1.7;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    nav a {
-      padding: 0.8rem 1.2rem;
-      color: inherit;
-      text-decoration: none;
-      border: 1px solid #8d7d71;
-      border-radius: 999px;
-      transition:
-        transform 180ms ease,
-        background 180ms ease;
-    }
-
-    nav a:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.75);
-    }
-
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+  <!-- Conecta esta página con la hoja de estilos. -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <header>
+  <!-- Encabezado principal de la página. -->
+  <header class="hero">
     <div class="intro">
-      <p>Marina</p>
+      <p class="eyebrow">Marina</p>
 
-      <h1>Bitácora de viaje</h1>
+      <h1>Bitácora de Viaje</h1>
 
       <p>
         Viajes, restaurantes, cocina, bellydance
         y recuerdos que quiero conservar.
       </p>
 
-      <nav>
-        <a href="#viajes">Viajes</a>
-        <a href="#restaurantes">Restaurantes</a>
-        <a href="#cocina">Cocina</a>
+      <!-- Menú simple para moverse por las secciones. -->
+      <nav aria-label="Menú principal">
+        <a href="#travel">Travel</a>
+        <a href="#restaurants">Restaurants</a>
+        <a href="#cooking">Cooking</a>
         <a href="#bellydance">Bellydance</a>
       </nav>
     </div>
   </header>
+
+  <main>
+    <!-- Cada sección representa una parte del diario personal. -->
+    <section id="travel" class="diary-section">
+      <h2>Travel</h2>
+      <p>Lugares visitados, caminatas lentas y pequeños detalles de cada viaje.</p>
+    </section>
+
+    <section id="restaurants" class="diary-section">
+      <h2>Restaurants</h2>
+      <p>Mesas bonitas, sabores nuevos y restaurantes que quiero recordar.</p>
+    </section>
+
+    <section id="cooking" class="diary-section">
+      <h2>Cooking</h2>
+      <p>Recetas caseras, pruebas en la cocina y platos para repetir.</p>
+    </section>
+
+    <section id="bellydance" class="diary-section">
+      <h2>Bellydance</h2>
+      <p>Música, movimiento, práctica y momentos especiales bailando.</p>
+    </section>
+  </main>
+
+  <!-- Conecta esta página con JavaScript. -->
+  <script src="script.js"></script>
 </body>
 </html>

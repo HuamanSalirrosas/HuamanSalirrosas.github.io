@@ -1,0 +1,141 @@
+/* Estilos generales para mantener un diseño simple y cálido. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  color: #302b28;
+  background:
+    linear-gradient(
+      135deg,
+      #fffaf4,
+      #f6eee7
+    );
+}
+
+/* Encabezado con el título principal del diario. */
+.hero {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.intro {
+  max-width: 750px;
+  animation: appear 1.2s ease both;
+}
+
+.eyebrow {
+  margin-bottom: 0;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(3rem, 9vw, 6rem);
+  font-weight: normal;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Menú de navegación con enlaces redondeados. */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+nav a {
+  padding: 0.8rem 1.2rem;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #8d7d71;
+  border-radius: 999px;
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+nav a:hover,
+nav a:focus {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+main {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* Tarjetas sencillas para las secciones del diario. */
+.diary-section {
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(141, 125, 113, 0.35);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.35);
+  animation: appear 1.2s ease both;
+}
+
+.diary-section p {
+  margin-bottom: 0;
+}
+
+/* Animación suave de entrada. */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajustes para pantallas pequeñas como teléfonos móviles. */
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+    padding: 2.5rem 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  nav a {
+    text-align: center;
+  }
+
+  main {
+    padding: 0 1rem 3rem;
+  }
+
+  .diary-section {
+    padding: 1.5rem;
+  }
+}
