@@ -1,3 +1,2 @@
-// Este archivo queda listo para pequeños detalles interactivos.
-// Por ahora solo muestra un mensaje amable en la consola del navegador.
+// Este archivo queda listo para detalles interactivos compartidos entre páginas.
 console.log('Bienvenida a Bitácora de Viaje');
