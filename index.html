@@ -6,20 +6,31 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Marina</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body class="portrait-page">
   <main class="portrait-stage">
     <a class="magic-portrait" href="test.html" aria-label="Abrir la página de prueba">
-      <img
-        class="portrait-image"
-        src="assets/marina-portrait.svg"
-        alt="Retrato ilustrado de Marina"
-        width="1254"
-        height="1254"
+      <picture class="portrait-fallback">
+        <img
+          class="portrait-image"
+          src="assets/marina-portrait.svg"
+          alt="Retrato ilustrado de Marina"
+          width="1254"
+          height="1254"
+        >
+      </picture>
+      <video
+        class="portrait-video"
+        poster="assets/marina-portrait.svg"
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
       >
-      <span class="portrait-detail portrait-eyes" aria-hidden="true"></span>
-      <span class="portrait-detail portrait-lips" aria-hidden="true"></span>
-      <span class="portrait-detail portrait-hair" aria-hidden="true"></span>
+        <source data-src="assets/portrait/marina-loop.webm" type="video/webm">
+        <source data-src="assets/portrait/marina-loop.mp4" type="video/mp4">
+      </video>
     </a>
   </main>
 </body>
