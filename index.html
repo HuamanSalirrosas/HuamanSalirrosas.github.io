@@ -2,42 +2,93 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Bitácora de Viaje</title>
-
-  <!-- Evita que los buscadores indexen la página.
-       No equivale a protegerla con contraseña. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-
-  <!-- Conecta esta página con la hoja de estilos. -->
+  <title>Marina</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+<body class="portrait-page">
+  <main class="portrait-stage">
+    <a class="magic-portrait" href="test.html" aria-label="Abrir la página de prueba">
+      <span class="portrait-frame" aria-hidden="true">
+        <svg class="portrait-art" viewBox="0 0 640 800" role="img" aria-label="Retrato ilustrado de Marina sonriendo">
+          <defs>
+            <linearGradient id="portraitBackdrop" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#e6e2dc"/>
+              <stop offset="0.58" stop-color="#a7a59f"/>
+              <stop offset="1" stop-color="#37312f"/>
+            </linearGradient>
+            <linearGradient id="jacket" x1="0" y1="0" x2="0.8" y2="1">
+              <stop stop-color="#858985"/>
+              <stop offset="1" stop-color="#454846"/>
+            </linearGradient>
+            <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#087a88"/>
+              <stop offset="1" stop-color="#004854"/>
+            </linearGradient>
+            <radialGradient id="skin" cx="50%" cy="34%" r="68%">
+              <stop stop-color="#f1c6b3"/>
+              <stop offset="1" stop-color="#c9836d"/>
+            </radialGradient>
+            <filter id="softShadow" x="-40%" y="-40%" width="180%" height="200%">
+              <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#171313" flood-opacity=".38"/>
+            </filter>
+          </defs>
 
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html">Marina</a>
+          <rect width="640" height="800" rx="30" fill="url(#portraitBackdrop)"/>
+          <path d="M0 0h410v800H0z" fill="#d9d8d3" opacity=".22"/>
+          <g class="portrait-person" filter="url(#softShadow)">
+            <path d="M100 800c7-152 63-224 162-248h116c112 30 163 108 170 248z" fill="url(#jacket)"/>
+            <path d="M229 569l91 207 96-207-53-37h-83z" fill="url(#teal)"/>
+            <path d="M278 481v93c15 32 69 32 85 0v-93z" fill="url(#skin)"/>
 
-    <nav class="main-nav" aria-label="Menú principal">
-      <a href="viajes.html">Viajes</a>
-      <a href="restaurantes.html">Restaurantes</a>
-      <a href="cocina.html">Cocina</a>
-      <a href="danza.html">Danza</a>
-      <a href="proyectos.html">Proyectos</a>
-    </nav>
-  </header>
+            <g class="head-motion">
+              <path d="M153 392c-22-168 36-300 168-309 138-9 202 117 170 309l-48 153-242 11z" fill="#171516"/>
+              <path d="M199 287c0-118 48-174 123-174s123 56 123 174c0 136-54 229-123 229s-123-93-123-229z" fill="url(#skin)"/>
+              <path d="M189 302C154 210 194 77 319 74c95-2 158 76 146 197-23-43-44-92-69-116-42 42-121 16-164 87l-21 78z" fill="#191718"/>
+              <path d="M218 200c-28 50-35 132-16 196-38-51-43-158 6-226zm208-27c44 75 40 167 11 233 13-93-1-153-29-207z" fill="#393334" opacity=".8"/>
 
-  <main>
-    <section class="hero landing-hero">
-      <div class="intro">
-        <h1>Bitácora de Viaje</h1>
-      </div>
-    </section>
+              <g class="eye eye-left">
+                <path d="M239 302q35-28 68 0-34 29-68 0z" fill="#f8eee8"/>
+                <ellipse cx="273" cy="302" rx="11" ry="14" fill="#34251f"/>
+                <circle cx="277" cy="298" r="3" fill="#fff"/>
+                <path d="M237 299q35-32 72 1" fill="none" stroke="#322222" stroke-width="7" stroke-linecap="round"/>
+              </g>
+              <g class="eye eye-right">
+                <path d="M335 302q35-28 68 0-34 29-68 0z" fill="#f8eee8"/>
+                <ellipse cx="369" cy="302" rx="11" ry="14" fill="#34251f"/>
+                <circle cx="373" cy="298" r="3" fill="#fff"/>
+                <path d="M333 299q35-32 72 1" fill="none" stroke="#322222" stroke-width="7" stroke-linecap="round"/>
+              </g>
+              <path d="M319 309c-4 31-9 52-17 70 12 11 26 10 38 1" fill="none" stroke="#b96f61" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+              <ellipse cx="247" cy="366" rx="34" ry="17" fill="#db817e" opacity=".25"/>
+              <ellipse cx="395" cy="366" rx="34" ry="17" fill="#db817e" opacity=".25"/>
+              <g class="smile">
+                <path d="M270 414q51-29 102 0-48 62-102 0z" fill="#8d3540"/>
+                <path d="M280 411q40-11 82 0-41 16-82 0z" fill="#f7ddd2"/>
+                <path d="M286 431q34 20 68 0" fill="none" stroke="#b95b62" stroke-width="5" stroke-linecap="round"/>
+              </g>
+
+              <g class="earrings" stroke="#d7c7a5" stroke-width="5" fill="none">
+                <ellipse cx="190" cy="348" rx="19" ry="31"/>
+                <ellipse cx="451" cy="348" rx="19" ry="31"/>
+              </g>
+              <g fill="#e8ded0">
+                <path d="M173 376l-17 83h52l-12-83z"/>
+                <path d="M444 376l-12 83h52l-17-83z"/>
+              </g>
+              <g fill="#c98d46">
+                <path d="M187 376l-7 83h18z"/>
+                <path d="M453 376l9 83 8-83z"/>
+              </g>
+            </g>
+          </g>
+          <path d="M28 736V55a27 27 0 0127-27h530" fill="none" stroke="#fff" stroke-opacity=".16" stroke-width="2"/>
+        </svg>
+        <span class="portrait-sheen"></span>
+      </span>
+    </a>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>

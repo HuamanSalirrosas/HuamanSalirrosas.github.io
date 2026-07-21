@@ -22,6 +22,143 @@ body {
     linear-gradient(135deg, #fffaf4, #f6eee7);
 }
 
+/* The home page is deliberately wordless: the animated portrait is the navigation. */
+.portrait-page {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(236, 231, 223, 0.95), transparent 35%),
+    radial-gradient(circle at 78% 75%, rgba(0, 96, 108, 0.3), transparent 42%),
+    linear-gradient(145deg, #b9b7b1, #34302f 82%);
+}
+
+.portrait-stage {
+  width: 100%;
+  min-height: 100vh;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  display: grid;
+  place-items: center;
+  perspective: 1500px;
+}
+
+.magic-portrait {
+  width: min(66.666vw, 65vh);
+  aspect-ratio: 4 / 5;
+  display: block;
+  border-radius: clamp(22px, 4vw, 52px);
+  outline: none;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 180ms ease-out, filter 250ms ease;
+  filter: drop-shadow(0 35px 40px rgba(17, 14, 14, 0.45));
+}
+
+.magic-portrait:hover,
+.magic-portrait:focus-visible {
+  filter: drop-shadow(0 40px 48px rgba(8, 55, 61, 0.58));
+}
+
+.magic-portrait:focus-visible {
+  outline: 4px solid #e8ded0;
+  outline-offset: 8px;
+}
+
+.portrait-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  border: clamp(7px, 1.2vw, 15px) solid #332d2a;
+  border-radius: inherit;
+  background: #827f7a;
+  box-shadow:
+    inset 0 0 0 3px #b3915c,
+    inset 0 0 28px #050404,
+    0 0 0 2px rgba(232, 222, 208, 0.4);
+  transform: translateZ(18px);
+}
+
+.portrait-art {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.portrait-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 25%, rgba(255,255,255,.2) 44%, transparent 60%);
+  transform: translateX(-120%);
+  animation: portrait-sheen 7s ease-in-out infinite;
+}
+
+.head-motion {
+  transform-origin: 322px 485px;
+  animation: head-tilt 8s ease-in-out infinite;
+}
+
+.eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 6s ease-in-out infinite;
+}
+
+.smile {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: sweet-smile 8s ease-in-out infinite;
+}
+
+@keyframes head-tilt {
+  0%, 18%, 100% { transform: rotate(0deg) translate(0); }
+  36%, 52% { transform: rotate(2.7deg) translate(5px, 1px); }
+  70%, 84% { transform: rotate(-1.8deg) translate(-3px, 1px); }
+}
+
+@keyframes blink {
+  0%, 42%, 46%, 74%, 78%, 100% { transform: scaleY(1); }
+  44%, 76% { transform: scaleY(0.08); }
+}
+
+@keyframes sweet-smile {
+  0%, 18%, 100% { transform: scale(0.92, 0.82); }
+  34%, 82% { transform: scale(1, 1); }
+}
+
+@keyframes portrait-sheen {
+  0%, 64% { transform: translateX(-120%); }
+  82%, 100% { transform: translateX(120%); }
+}
+
+.test-page {
+  display: grid;
+  place-items: center;
+  background: #e6e2dc;
+}
+
+.test-page main {
+  width: auto;
+  margin: 0;
+  padding: 2rem;
+}
+
+.test-page p {
+  margin: 0;
+  color: #302b28;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magic-portrait,
+  .head-motion,
+  .eye,
+  .smile,
+  .portrait-sheen {
+    animation: none;
+    transition: none;
+  }
+}
+
 .site-header {
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
@@ -227,6 +364,9 @@ p {
 }
 
 @media (max-width: 760px) {
+  .magic-portrait {
+    width: min(88vw, 62vh);
+  }
   .site-header {
     align-items: stretch;
     flex-direction: column;
