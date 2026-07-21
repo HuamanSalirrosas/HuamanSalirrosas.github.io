@@ -10,6 +10,12 @@ The old implementation duplicated the complete image three times and clipped rec
 
 `tools/generate_portrait.py` renders 270 frames at 30 fps. The generator decodes the PNG embedded in the text-based SVG directly into memory. Every frame begins as an exact copy of that source, then composites only feathered local flow fields:
 
+This is an offline authoring tool, not a server or browser dependency. The
+deployed page plays the rendered WebM/MP4 files as ordinary video. An external
+animation editor may be used instead, provided it exports the production files
+as `assets/portrait/marina-loop.webm` and
+`assets/portrait/marina-loop.mp4`.
+
 | Time | Motion |
 | --- | --- |
 | 0.00–2.00 s | Still |
@@ -20,14 +26,25 @@ The old implementation duplicated the complete image three times and clipped rec
 | 6.72–7.65 s | Root-anchored foreground hair movement |
 | 7.65–9.00 s | Still, identical to the opening frame |
 
-Install and render:
+Create an isolated environment, install, and render:
 
 ```sh
-python3 -m pip install -r requirements-animation.txt
-python3 tools/generate_portrait.py --prototype
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-animation.txt
+python tools/generate_portrait.py --prototype
 ```
 
+On Windows PowerShell, create the environment with `py -m venv .venv` and
+activate it with `.venv\Scripts\Activate.ps1`. Run `deactivate` when finished.
+The `.venv/` directory is local and ignored by Git; recreate it from
+`requirements-animation.txt` instead of copying or committing it.
+
 The command creates production `marina-loop.webm` and `marina-loop.mp4` files plus a smaller `marina-preview.mp4` review encode. FFmpeg must be available on `PATH`. Use `--keep-frames` to retain PNG frames for mask inspection.
+
+Commit the production WebM and MP4 after reviewing them; GitHub Pages cannot run
+the Python generator during a page request. The optional preview encode remains
+ignored because it is not referenced by the site.
 
 ## Site integration
 
