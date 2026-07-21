@@ -3,17 +3,28 @@ body {
   margin: 0;
 }
 
-/* La imagen se adapta al ancho de cualquier pantalla. */
+/* El enlace y la imagen ocupan exactamente el alto visible, sin crear scroll. */
+body > a {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* La imagen cubre tanto pantallas de PC como de móvil. */
 img {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center;
 }
 
 /* Centramos el mensaje de la segunda página. */
 .pagina-prueba {
   min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   place-items: center;
   font-family: Arial, sans-serif;
