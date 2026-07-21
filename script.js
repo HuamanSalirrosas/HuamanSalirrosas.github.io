@@ -1,17 +1,21 @@
-const portrait = document.querySelector('.magic-portrait');
+const portraitVideo = document.querySelector('.portrait-video');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-if (portrait && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  portrait.addEventListener('pointermove', (event) => {
-    const bounds = portrait.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-
-    portrait.style.setProperty('--tilt-x', `${-y * 9}deg`);
-    portrait.style.setProperty('--tilt-y', `${x * 11}deg`);
+if (portraitVideo && !reducedMotion.matches) {
+  portraitVideo.querySelectorAll('source[data-src]').forEach((source) => {
+    source.src = source.dataset.src;
   });
 
-  portrait.addEventListener('pointerleave', () => {
-    portrait.style.setProperty('--tilt-x', '0deg');
-    portrait.style.setProperty('--tilt-y', '0deg');
+  portraitVideo.addEventListener('canplay', () => {
+    portraitVideo.classList.add('is-ready');
+    portraitVideo.play().catch(() => {
+      portraitVideo.classList.remove('is-ready');
+    });
+  }, { once: true });
+
+  portraitVideo.addEventListener('error', () => {
+    portraitVideo.classList.remove('is-ready');
   });
+
+  portraitVideo.load();
 }

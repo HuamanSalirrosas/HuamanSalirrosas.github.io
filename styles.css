@@ -49,8 +49,9 @@ body {
   outline-offset: -6px;
 }
 
+.portrait-fallback,
 .portrait-image,
-.portrait-detail {
+.portrait-video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -58,47 +59,29 @@ body {
   display: block;
 }
 
-.portrait-image {
-  position: relative;
+.portrait-image,
+.portrait-video {
   object-fit: cover;
 }
 
-.portrait-detail {
+.portrait-fallback {
+  margin: 0;
+}
+
+.portrait-video {
+  opacity: 0;
   pointer-events: none;
-  background: url("assets/marina-portrait.svg") center / 100% 100% no-repeat;
+  transition: opacity 180ms ease;
 }
 
-.portrait-eyes {
-  clip-path: polygon(37% 28.2%, 62.7% 28.2%, 62.7% 34%, 37% 34%);
-  transform-origin: 50% 31.1%;
-  animation: portrait-blink 9s linear infinite;
+.portrait-video.is-ready {
+  opacity: 1;
 }
 
-.portrait-lips {
-  clip-path: ellipse(7.2% 3.8% at 49.8% 45.8%);
-  transform-origin: 49.8% 45.8%;
-  animation: portrait-lip-twist 9s ease-in-out infinite;
-}
-
-.portrait-hair {
-  clip-path: polygon(24% 12%, 35% 13%, 30% 55%, 20% 66%, 23% 31%);
-  transform-origin: 27% 17%;
-  animation: portrait-hair-breeze 9s ease-in-out infinite;
-}
-
-@keyframes portrait-blink {
-  0%, 22%, 25%, 100% { transform: scaleY(1); }
-  23.4% { transform: scaleY(0.12); }
-}
-
-@keyframes portrait-lip-twist {
-  0%, 35%, 42%, 100% { transform: rotate(0) scale(1); }
-  38.5% { transform: rotate(-0.7deg) scale(1.012, 0.985); }
-}
-
-@keyframes portrait-hair-breeze {
-  0%, 74%, 84%, 100% { transform: rotate(0) translateX(0); }
-  79% { transform: rotate(-0.7deg) translateX(-0.35%); }
+@media (prefers-reduced-motion: reduce) {
+  .portrait-video {
+    display: none;
+  }
 }
 
 .test-page {
@@ -116,14 +99,6 @@ body {
 .test-page p {
   margin: 0;
   color: #302b28;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .magic-portrait,
-  .portrait-detail {
-    animation: none;
-    transition: none;
-  }
 }
 
 .site-header {
