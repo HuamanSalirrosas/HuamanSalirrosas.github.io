@@ -25,110 +25,80 @@ body {
 /* The home page is deliberately wordless: the animated portrait is the navigation. */
 .portrait-page {
   overflow: hidden;
-  background:
-    radial-gradient(circle at 24% 18%, rgba(236, 231, 223, 0.95), transparent 35%),
-    radial-gradient(circle at 78% 75%, rgba(0, 96, 108, 0.3), transparent 42%),
-    linear-gradient(145deg, #b9b7b1, #34302f 82%);
+  background: #f3efe7;
 }
 
 .portrait-stage {
   width: 100%;
   min-height: 100vh;
-  padding: clamp(1rem, 3vw, 2.5rem);
+  padding: 0;
   display: grid;
   place-items: center;
-  perspective: 1500px;
 }
 
 .magic-portrait {
-  width: min(66.666vw, 65vh);
-  aspect-ratio: 4 / 5;
-  display: block;
-  border-radius: clamp(22px, 4vw, 52px);
-  outline: none;
-  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
-  transform-style: preserve-3d;
-  transition: transform 180ms ease-out, filter 250ms ease;
-  filter: drop-shadow(0 35px 40px rgba(17, 14, 14, 0.45));
-}
-
-.magic-portrait:hover,
-.magic-portrait:focus-visible {
-  filter: drop-shadow(0 40px 48px rgba(8, 55, 61, 0.58));
-}
-
-.magic-portrait:focus-visible {
-  outline: 4px solid #e8ded0;
-  outline-offset: 8px;
-}
-
-.portrait-frame {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: min(100vw, 100vh);
+  aspect-ratio: 1;
   display: block;
-  overflow: hidden;
-  border: clamp(7px, 1.2vw, 15px) solid #332d2a;
-  border-radius: inherit;
-  background: #827f7a;
-  box-shadow:
-    inset 0 0 0 3px #b3915c,
-    inset 0 0 28px #050404,
-    0 0 0 2px rgba(232, 222, 208, 0.4);
-  transform: translateZ(18px);
+  outline: none;
 }
 
-.portrait-art {
-  width: 100%;
-  height: 100%;
-  display: block;
+.magic-portrait:focus-visible {
+  outline: 3px solid #08788a;
+  outline-offset: -6px;
 }
 
-.portrait-sheen {
+.portrait-image,
+.portrait-detail {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.portrait-image {
+  position: relative;
+  object-fit: cover;
+}
+
+.portrait-detail {
   pointer-events: none;
-  background: linear-gradient(115deg, transparent 25%, rgba(255,255,255,.2) 44%, transparent 60%);
-  transform: translateX(-120%);
-  animation: portrait-sheen 7s ease-in-out infinite;
+  background: url("assets/marina-portrait.svg") center / 100% 100% no-repeat;
 }
 
-.head-motion {
-  transform-origin: 322px 485px;
-  animation: head-tilt 8s ease-in-out infinite;
+.portrait-eyes {
+  clip-path: polygon(37% 28.2%, 62.7% 28.2%, 62.7% 34%, 37% 34%);
+  transform-origin: 50% 31.1%;
+  animation: portrait-blink 9s linear infinite;
 }
 
-.eye {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: blink 6s ease-in-out infinite;
+.portrait-lips {
+  clip-path: ellipse(7.2% 3.8% at 49.8% 45.8%);
+  transform-origin: 49.8% 45.8%;
+  animation: portrait-lip-twist 9s ease-in-out infinite;
 }
 
-.smile {
-  transform-box: fill-box;
-  transform-origin: center top;
-  animation: sweet-smile 8s ease-in-out infinite;
+.portrait-hair {
+  clip-path: polygon(24% 12%, 35% 13%, 30% 55%, 20% 66%, 23% 31%);
+  transform-origin: 27% 17%;
+  animation: portrait-hair-breeze 9s ease-in-out infinite;
 }
 
-@keyframes head-tilt {
-  0%, 18%, 100% { transform: rotate(0deg) translate(0); }
-  36%, 52% { transform: rotate(2.7deg) translate(5px, 1px); }
-  70%, 84% { transform: rotate(-1.8deg) translate(-3px, 1px); }
+@keyframes portrait-blink {
+  0%, 22%, 25%, 100% { transform: scaleY(1); }
+  23.4% { transform: scaleY(0.12); }
 }
 
-@keyframes blink {
-  0%, 42%, 46%, 74%, 78%, 100% { transform: scaleY(1); }
-  44%, 76% { transform: scaleY(0.08); }
+@keyframes portrait-lip-twist {
+  0%, 35%, 42%, 100% { transform: rotate(0) scale(1); }
+  38.5% { transform: rotate(-0.7deg) scale(1.012, 0.985); }
 }
 
-@keyframes sweet-smile {
-  0%, 18%, 100% { transform: scale(0.92, 0.82); }
-  34%, 82% { transform: scale(1, 1); }
-}
-
-@keyframes portrait-sheen {
-  0%, 64% { transform: translateX(-120%); }
-  82%, 100% { transform: translateX(120%); }
+@keyframes portrait-hair-breeze {
+  0%, 74%, 84%, 100% { transform: rotate(0) translateX(0); }
+  79% { transform: rotate(-0.7deg) translateX(-0.35%); }
 }
 
 .test-page {
@@ -150,10 +120,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .magic-portrait,
-  .head-motion,
-  .eye,
-  .smile,
-  .portrait-sheen {
+  .portrait-detail {
     animation: none;
     transition: none;
   }
