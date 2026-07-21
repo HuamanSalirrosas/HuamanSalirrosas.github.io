@@ -1,6 +1,11 @@
-assets/portrait/marina-loop.webm
-assets/portrait/marina-loop.mp4
+# The production WebM and MP4 are site assets and must be committed so GitHub
+# Pages can serve them. Only the optional local review encode is ignored.
 assets/portrait/marina-preview.mp4
+
+# Local Python environments. Keep installed packages outside version control.
+.venv/
+venv/
+env/
 
 __pycache__/
 *.py[cod]
