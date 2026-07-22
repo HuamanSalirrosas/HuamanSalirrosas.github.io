@@ -1,25 +1,73 @@
-/* Quitamos el margen para que la imagen ocupe toda la pantalla. */
+/* Una base limpia y serena para la portada. */
 body {
   margin: 0;
 }
 
-/* El retrato ocupa dos tercios del espacio disponible y queda centrado. */
-body > a {
-  display: block;
-  width: 66.6667%;
-  height: 100vh;
-  height: 100dvh;
-  margin-inline: auto;
+.pagina-inicio {
+  color: #292825;
+  background: #f7f5f0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* El retrato conserva dos tercios de la portada y la navegación queda a su derecha. */
+.presentacion {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(9rem, 1fr);
+}
+
+.retrato {
+  min-width: 0;
+  display: grid;
+  place-items: center;
   overflow: hidden;
 }
 
-/* Mostramos el retrato completo, centrado y sin recortarlo. */
-img {
+.retrato img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: contain;
   object-position: center;
+}
+
+.enlaces {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem clamp(1.5rem, 5vw, 4.5rem);
+}
+
+.enlaces a {
+  color: inherit;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.enlaces a:hover,
+.enlaces a:focus-visible {
+  color: #8a6f55;
+}
+
+.enlaces a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 0.4rem;
+}
+
+@media (max-width: 600px) {
+  .presentacion {
+    grid-template-columns: minmax(0, 2fr) minmax(7rem, 1fr);
+  }
+
+  .enlaces {
+    gap: 1.1rem;
+    padding: 1.25rem;
+  }
 }
 
 /* Centramos el mensaje de la segunda página. */
