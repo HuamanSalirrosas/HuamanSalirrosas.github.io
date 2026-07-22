@@ -4,18 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marina</title>
-  <link rel="preload" as="image" href="assets/marina-portrait.svg" type="image/svg+xml" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/marina_portrait.webp" type="image/webp" imagesrcset="assets/marina_portrait_640.webp 640w, assets/marina_portrait.webp 1254w" imagesizes="67vw" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="pagina-inicio">
   <main class="presentacion">
     <div class="retrato">
       <img
-        src="assets/marina-portrait.svg"
+        src="assets/marina_portrait.webp"
+        srcset="assets/marina_portrait_640.webp 640w, assets/marina_portrait.webp 1254w"
+        sizes="67vw"
         alt="Retrato ilustrado de Marina"
         width="1254"
         height="1254"
         fetchpriority="high"
+        decoding="async"
       >
     </div>
 

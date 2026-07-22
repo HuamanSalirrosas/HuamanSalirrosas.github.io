@@ -2,7 +2,7 @@
 
 Este sitio tiene dos páginas muy sencillas:
 
-- `index.html` precarga y muestra una imagen SVG no interactiva y, a su derecha,
+- `index.html` precarga y muestra una imagen WebP optimizada y adaptable no interactiva y, a su derecha,
   los enlaces «Viajes» y «Libros».
 - `test.html` muestra el mensaje «esto es una prueba».
 - `styles.css` adapta la imagen al alto visible en pantallas de PC y móvil,
