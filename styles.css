@@ -3,12 +3,13 @@ body {
   margin: 0;
 }
 
-/* El enlace y la imagen ocupan exactamente el alto visible, sin crear scroll. */
+/* El retrato ocupa dos tercios del espacio disponible y queda centrado. */
 body > a {
   display: block;
-  width: 100%;
+  width: 66.6667%;
   height: 100vh;
   height: 100dvh;
+  margin-inline: auto;
   overflow: hidden;
 }
 
