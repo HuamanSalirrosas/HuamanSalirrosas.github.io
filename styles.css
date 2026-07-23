@@ -78,3 +78,17 @@ body {
   place-items: center;
   font-family: Arial, sans-serif;
 }
+
+.pagina-libros {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  background: #f7f5f0;
+}
+
+.pagina-libros img {
+  width: min(90vw, 24rem);
+  height: auto;
+  display: block;
+}
