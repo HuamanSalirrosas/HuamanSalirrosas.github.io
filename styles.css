@@ -5,7 +5,16 @@ body {
 
 .pagina-inicio {
   color: #292825;
-  background: #f7f5f0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent calc(20% - clamp(1.5rem, 3vw, 3rem)),
+      rgb(197 174 145 / 6%) calc(20% - clamp(1.25rem, 2.5vw, 2.5rem)),
+      rgb(197 174 145 / 20%) 20%,
+      rgb(197 174 145 / 6%) calc(20% + clamp(1.25rem, 2.5vw, 2.5rem)),
+      transparent calc(20% + clamp(1.5rem, 3vw, 3rem))
+    ),
+    #f7f5f0;
   font-family: Georgia, "Times New Roman", serif;
 }
 
