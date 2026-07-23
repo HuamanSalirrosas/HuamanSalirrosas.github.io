@@ -5,25 +5,28 @@ body {
 
 .pagina-inicio {
   color: #292825;
-  background:
-    linear-gradient(
-      90deg,
-      transparent calc(20% - clamp(1.5rem, 3vw, 3rem)),
-      rgb(197 174 145 / 6%) calc(20% - clamp(1.25rem, 2.5vw, 2.5rem)),
-      rgb(197 174 145 / 20%) 20%,
-      rgb(197 174 145 / 6%) calc(20% + clamp(1.25rem, 2.5vw, 2.5rem)),
-      transparent calc(20% + clamp(1.5rem, 3vw, 3rem))
-    ),
-    #f7f5f0;
+  background: #f7f5f0;
   font-family: Georgia, "Times New Roman", serif;
 }
 
 /* El retrato conserva dos tercios de la portada y la navegación queda a su derecha. */
 .presentacion {
+  position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(9rem, 1fr);
+}
+
+/* Una franja nítida recorre el primer octavo de la portada. */
+.presentacion::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0 auto 0 0;
+  width: 12.5%;
+  background: #f7f5f0;
+  pointer-events: none;
 }
 
 .retrato {
@@ -39,7 +42,14 @@ body {
   display: block;
   object-fit: contain;
   object-position: center;
-  border-radius: clamp(1rem, 2.5vw, 2rem);
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 clamp(1rem, 3vw, 3rem), #000 calc(100% - clamp(1rem, 3vw, 3rem)), transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 clamp(1rem, 3vw, 3rem), #000 calc(100% - clamp(1rem, 3vw, 3rem)), transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 clamp(1rem, 3vw, 3rem), #000 calc(100% - clamp(1rem, 3vw, 3rem)), transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 clamp(1rem, 3vw, 3rem), #000 calc(100% - clamp(1rem, 3vw, 3rem)), transparent 100%);
+  mask-composite: intersect;
 }
 
 .enlaces {
