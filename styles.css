@@ -39,6 +39,7 @@ body {
   display: block;
   object-fit: contain;
   object-position: center;
+  border-radius: clamp(1rem, 2.5vw, 2rem);
 }
 
 .enlaces {
