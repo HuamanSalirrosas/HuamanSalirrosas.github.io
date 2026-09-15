@@ -82,14 +82,91 @@ body {
 .pagina-libros {
   min-height: 100vh;
   min-height: 100dvh;
-  display: grid;
-  place-items: center;
-  gap: 30px;
+  color: #292825;
   background: #f7f5f0;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
-.pagina-libros img {
-  width: min(90vw, 24rem);
+.biblioteca {
+  width: min(90vw, 68rem);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+.biblioteca > h1 {
+  margin: 0 0 clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.lista-libros {
+  display: grid;
+  gap: clamp(3rem, 8vw, 6rem);
+}
+
+.libro {
+  display: grid;
+  grid-template-columns: minmax(12rem, 20rem) minmax(0, 1fr);
+  align-items: center;
+  margin: 0;
+}
+
+.libro img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   height: auto;
   display: block;
+  box-shadow: 0 1.25rem 2.5rem rgb(54 45 36 / 18%);
+}
+
+.libro figcaption {
+  margin-left: -1.5rem;
+  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 6vw, 5rem);
+  padding-left: clamp(3.5rem, 8vw, 6.5rem);
+  background: #ebe4d8;
+}
+
+.libro h2 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.libro p {
+  max-width: 34rem;
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.libro .autor {
+  margin-top: 0.65rem;
+  color: #806b57;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 650px) {
+  .biblioteca {
+    width: min(88vw, 28rem);
+  }
+
+  .libro {
+    grid-template-columns: 1fr;
+  }
+
+  .libro img {
+    width: 78%;
+    margin: 0 auto;
+  }
+
+  .libro figcaption {
+    margin: -1.5rem 0 0;
+    padding: 3rem 1.5rem 1.75rem;
+    text-align: center;
+  }
 }
