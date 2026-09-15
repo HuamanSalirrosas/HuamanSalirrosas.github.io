@@ -84,6 +84,7 @@ body {
   min-height: 100dvh;
   display: grid;
   place-items: center;
+  gap: 30px;
   background: #f7f5f0;
 }
 
